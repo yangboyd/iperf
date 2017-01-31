@@ -172,8 +172,10 @@ iperf_udp_send(struct iperf_stream *sp)
 
     r = Nwrite(sp->socket, sp->buffer, size, Pudp);
 
-    if (r < 0)
+    if (r < 0) {
+	iperf_err(sp->test, "UDP write of %u bytes to fd=%d failed, errno=%d", size, sp->socket, errno);
 	return r;
+    }
 
     sp->result->bytes_sent += r;
     sp->result->bytes_sent_this_interval += r;
