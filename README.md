@@ -1,6 +1,9 @@
 iperf3:  A TCP, UDP, and SCTP network bandwidth measurement tool
 ================================================================
 
+Android:
+./configure --disable-profiling  --host=arm-linux-androideabi
+
 Summary
 -------
 
